@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Shortest path to one square to another",
   "main": "knights-trevails.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
