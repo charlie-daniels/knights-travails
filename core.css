@@ -26,6 +26,11 @@
 .square {
     width: auto;
     height: auto;
+    transition: all .2s ease-in-out;
+}
+
+.square:hover {
+    transform: scale(1.06);
 }
 
 .light {
@@ -34,6 +39,14 @@
 
 .dark {
     background-color: #b48c64;
+}
+
+.light:hover {
+    background-color: #fce6c0;
+}
+
+.dark:hover {
+    background-color: #c4986d;
 }
 
 .title{
