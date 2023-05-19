@@ -1,0 +1,55 @@
+#wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 1fr 2fr 1fr;
+    background-color: #4e4e4e;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    border: 25px solid #3d3d3d;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.square {
+    width: auto;
+    height: auto;
+    transition: all .2s ease-in-out;
+}
+
+.square:hover {
+    transform: scale(1.06);
+}
+
+.light {
+    background-color: #f4dcb4;
+}
+
+.dark {
+    background-color: #b48c64;
+}
+
+.light:hover {
+    background-color: #fce6c0;
+}
+
+.dark:hover {
+    background-color: #c4986d;
+}
+
+.title{
+    color: white;
+    font-size: 4rem;
+}
