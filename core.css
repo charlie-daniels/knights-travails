@@ -1,3 +1,26 @@
+/* Font */
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    color: #f4dcb4;
+}
+
+h1 {
+    font-size: 3rem;
+}
+
+.title {
+    color: white;
+    font-size: 4rem;
+}
+
+.small-text {
+    font-size: 0.8rem;
+}
+
+/* Structure */
+
 #wrapper {
     position: absolute;
     top: 0;
@@ -11,11 +34,32 @@
     background-color: #4e4e4e;
 }
 
+#cover {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
 #board {
     display: grid;
     grid-template-columns: repeat(8, 50px);
     grid-template-rows: repeat(8, 50px);
     border: 25px solid #3d3d3d;
+    border-radius: 1rem;
+}
+
+#tooltip {
+    padding-top: 1rem;
+    opacity: 0;
+    transition: 2s;
+}
+
+#tag {
+    position: absolute;
+    bottom: 0.7rem;
 }
 
 .header {
@@ -23,15 +67,12 @@
     justify-content: center;
 }
 
-.square {
-    width: auto;
-    height: auto;
-    transition: all .2s ease-in-out;
+.footer {
+    display: flex;
+    justify-content: center;
 }
 
-.square:hover {
-    transform: scale(1.06);
-}
+/* Board tiles */
 
 .light {
     background-color: #f4dcb4;
@@ -49,7 +90,16 @@
     background-color: #c4986d;
 }
 
-.title{
-    color: white;
-    font-size: 4rem;
+.square {
+    width: auto;
+    height: auto;
+    transition: all .2s ease-in-out;
+}
+
+.square:hover {
+    transform: scale(1.06);
+}
+
+.start {
+    background-color: rgb(61, 99, 54);
 }

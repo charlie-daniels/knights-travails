@@ -3,20 +3,17 @@ import Board from './board.js';
 let start;
 let end;
 
-function moveKnight() {
-
-}
-
 function showPath(tiles, delay) {
     let gap = 70;
     let offset = Math.floor(Math.random() * (360 - gap));
     let colorIncrement = gap / tiles.length;
     for (const [i, t] of tiles.entries()){
         setTimeout(() => {
-            console.log((Math.floor(i * colorIncrement) + offset))
             t.style['background-color'] = `hsl(${Math.floor(i * colorIncrement) + offset}, 30%, ${i * 4 + 30}%)`;
-        }, delay * i)
+        }, delay * i);
     }
+    const tooltip = document.getElementById('tooltip');
+    setTimeout(() => tooltip.style.opacity = 1, 3000);
 }
 
 function trevail(start, end) {
@@ -39,7 +36,6 @@ function onTileClick(tile, cover) {
         cover.style.display = 'block';
         let tilePath = trevail(start, end);
         showPath(tilePath.reverse(), 180);
-        moveKnight();
     }
 }
 
@@ -48,7 +44,8 @@ const cover = document.getElementById('cover');
 
 (function addListeners() {
     board.childNodes.forEach((tile) => {
-        tile.addEventListener("click", () => onTileClick(tile, cover));
+        tile.addEventListener('click', () => onTileClick(tile, cover));
     });
+    cover.addEventListener('click', () => location.reload());
 })();
 
