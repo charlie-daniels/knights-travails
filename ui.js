@@ -3,13 +3,24 @@ import Board from './board.js';
 let start;
 let end;
 
+function showPath(tiles) {
+    // hsl between 120 and 160
+    let offset = 110;
+    let gap = 70;
+    let colorIncrement = gap / tiles.length;
+    for (const [i, t] of tiles.entries()){
+        t.style['background-color'] = `hsl(${(i * colorIncrement) + offset}, 30%, ${i * 4 + 30}%)`;
+    }
+}
 
 function trevail(start, end) {
     const path = Board.knightMoves(start, end);
+    let tilePath = [];
     path.forEach((node) => {
         const tile = document.querySelector(`[data-file="${node.x}"]` + `[data-rank="${node.y}"]`);
-        console.log(tile)
+        tilePath.push(tile);
     })
+    return tilePath;
 }
 
 function onTileClick(tile, cover) {
@@ -21,7 +32,8 @@ function onTileClick(tile, cover) {
         end = [Number(tile.dataset.file), Number(tile.dataset.rank)];
         tile.classList.add('end');
         cover.style.display = 'block';
-        trevail(start, end);
+        let tilePath = trevail(start, end);
+        showPath(tilePath);
     }
 }
 
