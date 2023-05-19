@@ -3,13 +3,19 @@ import Board from './board.js';
 let start;
 let end;
 
-function showPath(tiles) {
-    // hsl between 120 and 160
-    let offset = 110;
+function moveKnight() {
+
+}
+
+function showPath(tiles, delay) {
     let gap = 70;
+    let offset = Math.floor(Math.random() * (360 - gap));
     let colorIncrement = gap / tiles.length;
     for (const [i, t] of tiles.entries()){
-        t.style['background-color'] = `hsl(${(i * colorIncrement) + offset}, 30%, ${i * 4 + 30}%)`;
+        setTimeout(() => {
+            console.log((Math.floor(i * colorIncrement) + offset))
+            t.style['background-color'] = `hsl(${Math.floor(i * colorIncrement) + offset}, 30%, ${i * 4 + 30}%)`;
+        }, delay * i)
     }
 }
 
@@ -30,10 +36,10 @@ function onTileClick(tile, cover) {
         cover.style.display = 'none';
     } else {
         end = [Number(tile.dataset.file), Number(tile.dataset.rank)];
-        tile.classList.add('end');
         cover.style.display = 'block';
         let tilePath = trevail(start, end);
-        showPath(tilePath);
+        showPath(tilePath.reverse(), 180);
+        moveKnight();
     }
 }
 
